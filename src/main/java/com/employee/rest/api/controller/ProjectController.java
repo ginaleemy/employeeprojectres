@@ -1,4 +1,4 @@
-package com.employee.rest.webservices.controller;
+package com.employee.rest.api.controller;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.employee.rest.webservices.exception.NotAbleDeleteException;
-import com.employee.rest.webservices.exception.RecNotFoundException;
-import com.employee.rest.webservices.jpa.ProjectRepositoryInterface;
-import com.employee.rest.webservices.model.Project;
+import com.employee.rest.api.exception.NotAbleDeleteException;
+import com.employee.rest.api.exception.RecNotFoundException;
+import com.employee.rest.api.jpa.ProjectRepositoryInterface;
+import com.employee.rest.api.model.Project;
 
 import jakarta.validation.Valid;
 
@@ -35,12 +35,12 @@ public class ProjectController {
 		this.service = service;
 	}
 
-	@GetMapping("/projects")
+	@GetMapping("/api/projects")
 	public List<Project> retrieveAllProjects() {
 		return service.findAll();
 	}
 
-	@GetMapping("/projects/{id}")
+	@GetMapping("/api/projects/{id}")
 	public EntityModel<Project> retrieveProj(@PathVariable int id) {
 		Optional<Project> project = service.findById(id);
 		if (project.isEmpty())
@@ -54,7 +54,7 @@ public class ProjectController {
 		return entityModel;
 	}
 
-	@DeleteMapping("/projects/{id}")
+	@DeleteMapping("/api/projects/{id}")
 	public ResponseEntity<String> deleteProj(@PathVariable int id) {
 		Optional<Project> proj = null;
 		try {
@@ -74,7 +74,7 @@ public class ProjectController {
 		return ResponseEntity.ok("Operation completed successfully");
 	}
 
-	@PostMapping("/projects")
+	@PostMapping("/api/projects")
 	public ResponseEntity<Project> createProject(@Valid @RequestBody Project proj) {
 		Project savedProj = service.save(proj);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(savedProj.getId())

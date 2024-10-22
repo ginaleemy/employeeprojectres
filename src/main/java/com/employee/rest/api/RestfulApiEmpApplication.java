@@ -1,13 +1,13 @@
-package com.employee.rest.webservices;
+package com.employee.rest.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RestfulWebServicesEmpApplication {
+public class RestfulApiEmpApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RestfulWebServicesEmpApplication.class, args);
+		SpringApplication.run(RestfulApiEmpApplication.class, args);
 	}
 
 }

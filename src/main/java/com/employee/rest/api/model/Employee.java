@@ -1,7 +1,7 @@
-package com.employee.rest.webservices.model;
+package com.employee.rest.api.model;
 
-import com.employee.rest.webservices.validation.NoSpaces;
-import com.employee.rest.webservices.validation.SizeRange;
+import com.employee.rest.api.validation.NoSpaces;
+import com.employee.rest.api.validation.SizeRange;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;

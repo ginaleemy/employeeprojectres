@@ -1,4 +1,4 @@
-package com.employee.rest.webservices.exception;
+package com.employee.rest.api.exception;
 
 import java.time.LocalDateTime;
 

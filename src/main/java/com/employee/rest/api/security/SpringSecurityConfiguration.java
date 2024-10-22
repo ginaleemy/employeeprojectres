@@ -1,4 +1,4 @@
-package com.employee.rest.webservices.security;
+package com.employee.rest.api.security;
 
 
 import static org.springframework.security.config.Customizer.withDefaults;
@@ -56,7 +56,7 @@ public class SpringSecurityConfiguration {
 	            .sessionManagement(session -> session     // Set session to stateless
 	                .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 	            .authorizeHttpRequests(auth -> auth
-	                .requestMatchers(new AntPathRequestMatcher("/api/public/**")).permitAll()  // Allow access to public API endpoints
+	                .requestMatchers(new AntPathRequestMatcher("/api/**")).permitAll()  // Allow access to public API endpoints
 	                .anyRequest().authenticated()              // Authenticate all other requests
 	            )
 	            .httpBasic(withDefaults());         // Basic Auth for simplicity (replace with JWT if needed)

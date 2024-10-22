@@ -1,4 +1,4 @@
-package com.employee.rest.webservices.model;
+package com.employee.rest.api.model;
 
 import java.util.Optional;
 
@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.employee.rest.webservices.exception.RecNotFoundException;
-import com.employee.rest.webservices.jpa.DeptRepositoryInterface;
-import com.employee.rest.webservices.jpa.EmployeeProjectRepositoryInterface;
-import com.employee.rest.webservices.jpa.EmployeeRepositoryInterface;
-import com.employee.rest.webservices.jpa.ProjectRepositoryInterface;
+import com.employee.rest.api.exception.RecNotFoundException;
+import com.employee.rest.api.jpa.DeptRepositoryInterface;
+import com.employee.rest.api.jpa.EmployeeProjectRepositoryInterface;
+import com.employee.rest.api.jpa.EmployeeRepositoryInterface;
+import com.employee.rest.api.jpa.ProjectRepositoryInterface;
 
 
 

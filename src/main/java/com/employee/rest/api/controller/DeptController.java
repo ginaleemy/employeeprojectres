@@ -1,4 +1,4 @@
-package com.employee.rest.webservices.controller;
+package com.employee.rest.api.controller;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.employee.rest.webservices.exception.NotAbleDeleteException;
-import com.employee.rest.webservices.exception.RecNotFoundException;
-import com.employee.rest.webservices.jpa.DeptRepositoryInterface;
-import com.employee.rest.webservices.model.Dept;
+import com.employee.rest.api.exception.NotAbleDeleteException;
+import com.employee.rest.api.exception.RecNotFoundException;
+import com.employee.rest.api.jpa.DeptRepositoryInterface;
+import com.employee.rest.api.model.Dept;
 
 import jakarta.validation.Valid;
 
@@ -35,12 +35,12 @@ public class DeptController {
 		this.service = service;
 	}
 
-	@GetMapping("/dept")
+	@GetMapping("/api/dept")
 	public List<Dept> retrieveAllDepts() {
 		return service.findAll();
 	}
 
-	@GetMapping("/dept/{id}")
+	@GetMapping("/api/dept/{id}")
 	public EntityModel<Dept> retrieveDept(@PathVariable int id) {
 		Optional<Dept> dept = service.findById(id);
 		
@@ -55,7 +55,7 @@ public class DeptController {
 	}
 	
 	
-	@DeleteMapping("/dept/{id}")
+	@DeleteMapping("/api/dept/{id}")
 	public ResponseEntity<String> deleteDept(@PathVariable int id) {
 		Optional<Dept> dept = null;
 		try {
@@ -74,7 +74,7 @@ public class DeptController {
 		return ResponseEntity.ok("Operation completed successfully");
 	}
 
-	@PostMapping("/dept")
+	@PostMapping("/api/dept")
 	public ResponseEntity<Dept> createDept(@Valid @RequestBody Dept dept) {
 		
 		Dept savedDept = service.save(dept);

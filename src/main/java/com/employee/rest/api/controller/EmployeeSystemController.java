@@ -1,4 +1,4 @@
-package com.employee.rest.webservices.controller;
+package com.employee.rest.api.controller;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -19,14 +19,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.employee.rest.webservices.exception.NotAbleDeleteException;
-import com.employee.rest.webservices.exception.RecNotFoundException;
-import com.employee.rest.webservices.jpa.EmployeeProjectRepositoryInterface;
-import com.employee.rest.webservices.jpa.EmployeeRepositoryInterface;
-import com.employee.rest.webservices.jpa.ProjectRepositoryInterface;
-import com.employee.rest.webservices.model.Employee;
-import com.employee.rest.webservices.model.EmployeeProject;
-import com.employee.rest.webservices.model.Project;
+import com.employee.rest.api.exception.NotAbleDeleteException;
+import com.employee.rest.api.exception.RecNotFoundException;
+import com.employee.rest.api.jpa.EmployeeProjectRepositoryInterface;
+import com.employee.rest.api.jpa.EmployeeRepositoryInterface;
+import com.employee.rest.api.jpa.ProjectRepositoryInterface;
+import com.employee.rest.api.model.Employee;
+import com.employee.rest.api.model.EmployeeProject;
+import com.employee.rest.api.model.Project;
 
 import jakarta.validation.Valid;
 
@@ -47,12 +47,12 @@ public class EmployeeSystemController {
 		this.projectService = projectService;
 	}
 
-	@GetMapping("/employeeprojects")
+	@GetMapping("/api/employeeprojects")
 	public List<EmployeeProject> retrieveAllProjects() {
 		return service.findAll();
 	}
 
-	@GetMapping("/employeeprojects/{id}")
+	@GetMapping("/api/employeeprojects/{id}")
 	public EntityModel<EmployeeProject> retrieveEmployeeProject(@PathVariable int id) {
 		Optional<EmployeeProject> empt = service.findById(id);
 		
@@ -67,7 +67,7 @@ public class EmployeeSystemController {
 
 	}
 
-	@DeleteMapping("/employeeprojects/{id}")
+	@DeleteMapping("/api/employeeprojects/{id}")
 	public ResponseEntity<String> deleteEmployeeProject(@PathVariable int id) {
 		Optional<EmployeeProject> proj = null;
 		try {
@@ -85,7 +85,7 @@ public class EmployeeSystemController {
 	}
 
 
-	@PostMapping("/employeeprojects")
+	@PostMapping("/api/employeeprojects")
 	public ResponseEntity<EmployeeProject> createEmployeeProject(@Valid @RequestBody EmployeeProject proj) {
 		
 		

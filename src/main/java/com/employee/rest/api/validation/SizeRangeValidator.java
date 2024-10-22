@@ -1,4 +1,4 @@
-package com.employee.rest.webservices.validation;
+package com.employee.rest.api.validation;
 
 
 import jakarta.validation.ConstraintValidator;

@@ -1,4 +1,4 @@
-package com.employee.rest.webservices.model;
+package com.employee.rest.api.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

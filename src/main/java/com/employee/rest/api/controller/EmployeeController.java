@@ -1,4 +1,4 @@
-package com.employee.rest.webservices.controller;
+package com.employee.rest.api.controller;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -19,15 +19,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.employee.rest.webservices.exception.NotAbleDeleteException;
-import com.employee.rest.webservices.exception.RecNotFoundException;
-import com.employee.rest.webservices.jpa.DeptRepositoryInterface;
-import com.employee.rest.webservices.jpa.EmployeeRepositoryInterface;
-import com.employee.rest.webservices.model.Dept;
-import com.employee.rest.webservices.model.Employee;
+import com.employee.rest.api.exception.NotAbleDeleteException;
+import com.employee.rest.api.exception.RecNotFoundException;
+import com.employee.rest.api.jpa.DeptRepositoryInterface;
+import com.employee.rest.api.jpa.EmployeeRepositoryInterface;
+import com.employee.rest.api.model.Dept;
+import com.employee.rest.api.model.Employee;
 
-import io.micrometer.common.util.StringUtils;
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 
 @RestController
@@ -43,12 +41,12 @@ public class EmployeeController {
 		this.departmentService = departmentService;
 	}
 
-	@GetMapping("/employees")
+	@GetMapping("/api/employees")
 	public List<Employee> retrieveAllEmps() {
 		return service.findAll();
 	}
 
-	@GetMapping("/employees/{id}")
+	@GetMapping("/api/employees/{id}")
 	public EntityModel<Employee> retrieveEmp(@PathVariable int id) {
 		Optional<Employee> empt = service.findById(id);
 
@@ -62,7 +60,7 @@ public class EmployeeController {
 		return entityModel;
 	}
 
-	@DeleteMapping("/employees/{id}")
+	@DeleteMapping("/api/employees/{id}")
 	public ResponseEntity<String>  deleteEmp(@PathVariable int id) {
 		Optional<Employee> empt = null;
 		try {
@@ -80,7 +78,7 @@ public class EmployeeController {
 		return ResponseEntity.ok("Operation completed successfully");
 	}
 
-	@PostMapping("/employees")
+	@PostMapping("/api/employees")
 	public ResponseEntity<Employee> createEmp(@Valid @RequestBody Employee emp) {
 		
 		Integer maxCode = service.findMaxEmployeeCode();

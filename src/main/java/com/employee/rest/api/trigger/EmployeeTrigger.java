@@ -1,11 +1,13 @@
-package com.employee.rest.webservices.restful_web_services01.trigger;
+package com.employee.rest.api.trigger;
 
 
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class EmployeeTrigger1 implements Trigger {
+import org.h2.api.Trigger;
+
+public class EmployeeTrigger implements Trigger {
 	public void init(String triggerName, Connection conn) throws SQLException {
 		// Initialization code if needed
 	}

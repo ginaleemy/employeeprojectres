@@ -16,15 +16,14 @@ select  b.name,  a.* from EmployeeProject a, project b where a.project_id=b.id;
 
 */
 -- Drop tables if they exist
-
 -- Drop tables in reverse order of dependencies
 --ALTER TABLE staff_project
 --DROP CONSTRAINT FK5TC6V4VECRUVQNYOXPKTI12MU;
 
-DROP TABLE IF EXISTS todos.employee_Project;
-DROP TABLE IF EXISTS todos.project;
-DROP TABLE IF EXISTS todos.employee;
-DROP TABLE IF EXISTS todos.dept;
+DROP TABLE IF EXISTS employee_project;
+DROP TABLE IF EXISTS project;
+DROP TABLE IF EXISTS employee;
+DROP TABLE IF EXISTS dept;
 
 
 -- Create Department Table
@@ -46,32 +45,17 @@ CREATE TABLE employee (
     employee_code VARCHAR(100) NOT NULL UNIQUE,
     CONSTRAINT fk_department FOREIGN KEY (department_id) REFERENCES dept(id)
 );
-CREATE INDEX idx_employee_code ON Employee(employee_code);
-
--- Create Trigger to auto-generate employee_code
---CREATE TRIGGER before_insert_employee
---BEFORE INSERT ON Employee
---FOR EACH ROW
---CALL "com.employee.rest.webservices.restful_web_services01.trigger.EmployeeTrigger";
 
 
-DELIMITER $$
-CREATE TRIGGER before_employee_insert
-BEFORE INSERT ON employee
+--Create Trigger to auto-generate employee_code
+CREATE TRIGGER before_insert_employee
+BEFORE INSERT ON Employee
 FOR EACH ROW
-BEGIN
-    DECLARE new_id INT;
+CALL "com.employee.rest.api.trigger.EmployeeTrigger";
 
-    -- Get the next available ID (assuming you are using auto-increment)
-    SET new_id = (SELECT IFNULL(MAX(id), 0) + 1 FROM employee);
-
-    -- Set the employee_code for the new row
-    SET NEW.employee_code = CONCAT('EMP', LPAD(new_id, 4, '0'));
-END $$
-DELIMITER ;
 
 -- Create Project Table
-CREATE TABLE EmployeeProject (
+CREATE TABLE employee_project (
     id INT AUTO_INCREMENT,
     project_id INT,
     employee_code VARCHAR(100) NOT NULL,
@@ -80,4 +64,35 @@ CREATE TABLE EmployeeProject (
     CONSTRAINT fk_project FOREIGN KEY (project_id) REFERENCES Project(id) 
 );
 
+INSERT INTO dept (name) VALUES 
+    ('Information Technology'),
+    ('Human Resources'),
+    ('Finance'),
+    ('Marketing'),
+    ('Sales');
 
+-- Insert Projects
+INSERT INTO project (name, project_status) VALUES 
+    ('Project Alpha', 'A'),
+    ('Project Beta', 'A'),
+    ('Project Gamma', 'C'),
+    ('Project Delta', 'A'),
+    ('Project Epsilon', 'A');
+
+-- Insert Employees
+INSERT INTO employee (name, position, department_id, employee_code) VALUES 
+    ('John Doe', 'Software Engineer', 1, 'EMP0001'),
+    ('Jane Smith', 'HR Manager', 2, 'EMP0002'),
+    ('Michael Brown', 'Financial Analyst', 3, 'EMP0003'),
+    ('Emily Davis', 'Marketing Specialist', 4, 'EMP0004'),
+    ('James Wilson', 'Sales Executive', 5, 'EMP0005');
+
+
+INSERT INTO employee (name, position, department_id, employee_code) VALUES ('John Doe', 'Software Engineer', 1, 'test');
+-- Insert Staff Projects
+INSERT INTO employee_project (project_id, employee_code) VALUES 
+    ( 1, 'EMP0001'),
+    ( 2, 'EMP0002'),
+    ( 3, 'EMP0003'),
+    ( 4, 'EMP0004'),
+    ( 5, 'EMP0005');

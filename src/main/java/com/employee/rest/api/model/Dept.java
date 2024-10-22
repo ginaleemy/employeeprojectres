@@ -1,6 +1,6 @@
-package com.employee.rest.webservices.model;
+package com.employee.rest.api.model;
 
-import com.employee.rest.webservices.validation.SizeRange;
+import com.employee.rest.api.validation.SizeRange;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

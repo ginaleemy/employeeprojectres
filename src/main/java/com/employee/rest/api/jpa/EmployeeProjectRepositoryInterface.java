@@ -1,10 +1,10 @@
-package com.employee.rest.webservices.jpa;
+package com.employee.rest.api.jpa;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.employee.rest.webservices.model.EmployeeProject;
+import com.employee.rest.api.model.EmployeeProject;
 
 import jakarta.transaction.Transactional;
 

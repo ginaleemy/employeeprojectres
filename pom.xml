@@ -9,11 +9,11 @@
 		<version>3.3.4</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.employee.rest.webservices</groupId>
-	<artifactId>employee-system-res</artifactId>
+	<groupId>com.employee.rest.api</groupId>
+	<artifactId>employee-project-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>employee-system-res</name>
-	<description>Demo project for Spring Boot restful webservices</description>
+	<name>employee-project-api</name>
+	<description>Demo project for Spring Boot restful api</description>
 	<url />
 	<licenses>
 		<license />
@@ -72,16 +72,11 @@
 		
 		<!--
 		<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-			<version>2.1.0</version>
-		</dependency>
-
-		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
 		</dependency>
 		
+		-->	
 		
      	<dependency>
 			<groupId>com.h2database</groupId>
@@ -89,18 +84,12 @@
 			<scope>runtime</scope>
 		</dependency> 
 		
-			<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.33</version>
-		</dependency>
-		-->	
-		
+		<!-- For my sql
 		<dependency>
 		    <groupId>com.mysql</groupId>
 		    <artifactId>mysql-connector-j</artifactId>
 		</dependency>
-
+         -->	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
