@@ -40,7 +40,7 @@ Steps to Startup the Project
    
 10) After importing, in the Eclipse menu, navigate to Project > Properties > Java Build Path > Libraries tab > Classpath.
     
-12) Click Add External JARs. Select the restful-web-services01\lib\h2-2.2.224.jar file and click Open.
+12) Click Add External JARs. Select the restful-web-services01\lib\* file and click Open.
     
 14) Click Apply and Close.
     
