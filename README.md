@@ -63,6 +63,7 @@ Testing
 ----------------------------------------------------
 You can start testing using the following methods:
 i. Swagger-UI: Click the method and then click "Try It Out."
+
 ii. Open Google Chrome and use Talend API Tester: Paste the following to start API testing:
 
 Method: GET
