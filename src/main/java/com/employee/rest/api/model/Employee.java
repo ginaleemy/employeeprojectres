@@ -117,10 +117,11 @@ public class Employee {
 	public void setDepartmentId(Integer departmentId) {
 		this.departmentId = departmentId;
 	}
-
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", position=" + position + ", department=" + department
 				+ ", employeeCode=" + employeeCode + ", departmentId=" + departmentId + "]";
 	}
+
+	
 }
