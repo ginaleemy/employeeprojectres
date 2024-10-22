@@ -15,7 +15,7 @@ import com.employee.rest.api.jpa.ProjectRepositoryInterface;
 
 
 
-@Component
+//@Component
 public class TestJpaDataCommandLineRunner implements CommandLineRunner{
 	
 	@Autowired
@@ -37,10 +37,10 @@ public class TestJpaDataCommandLineRunner implements CommandLineRunner{
 		Dept dept = repositoryDept.save(new Dept("Parcel"));  //1
 		Project newProj = repositoryProj.save(new Project("MRT PROJECT","A")); //2
 		
-		Integer maxCode = repositoryEmp.findMaxEmployeeCode();
-        Integer nextCode = (maxCode != null) ? maxCode + 1 : 1;
-        String employeeCode = String.format("EMP%04d", nextCode);
-		Employee tpEmp = repositoryEmp.save(new Employee("Lim Ah Kow", "Assistant", dept, employeeCode));  //3		
+	  //	Integer maxCode = repositoryEmp.findMaxEmployeeCode();
+      //  Integer nextCode = (maxCode != null) ? maxCode + 1 : 1;
+      //  String employeeCode = String.format("EMP%04d", nextCode);
+		Employee tpEmp = repositoryEmp.save(new Employee("Lim Ah Kow", "Assistant", dept, "Emp001"));  //3		
 		
 		Integer newEmployeeId = tpEmp.getId();
 		Optional<Employee> optEmp = repositoryEmp.findById(newEmployeeId);

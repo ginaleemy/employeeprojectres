@@ -1,6 +1,5 @@
 package com.employee.rest.api.model;
 
-import com.employee.rest.api.validation.NoSpaces;
 import com.employee.rest.api.validation.SizeRange;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -16,7 +15,6 @@ import jakarta.persistence.PostLoad;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.persistence.UniqueConstraint;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(
@@ -32,16 +30,11 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@NotNull(message = "Name is required")
-	@SizeRange(min = 2, max = 100, message = "Name should have between 2 and 100 characters") // Custom size validation
-	@NoSpaces // Custom validation to disallow empty or whitespace-only values
+	@SizeRange(min = 2, max = 100, message = "Name should have between 2 and 100 characters") 
 	@Column(name = "name", nullable = false, length = 100)
 	private String name;
 
-	@NotNull(message = "Position is required")
-	@SizeRange(min = 2, max = 100, message = "Position should have between 2 and 100 characters") // Custom size
-																									// validation
-	@NoSpaces // Custom validation to disallow empty or whitespace-only values
+	@SizeRange(min = 1, max = 100, message = "Position should have between 2 and 100 characters") 
 	@Column(name = "position", nullable = false, length = 100)
 	private String position;
 
@@ -53,7 +46,7 @@ public class Employee {
     )
     private Dept department;
 	
-	@NotNull(message = "Employee code is required")
+	@SizeRange(min = 1, max = 100, message = "Employee Code should have between 1 and 100 characters")
 	@Column(name = "employee_code", nullable = false, unique = true, length = 100)
 	private String employeeCode;
 	

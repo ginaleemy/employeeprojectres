@@ -7,7 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity(name = "dept")
 public class Dept {
@@ -16,7 +16,7 @@ public class Dept {
 	@Column(name = "id", nullable = false)
 	private Integer id;
 
-	@NotNull(message = "Deparment Name is required")
+	
 	@SizeRange(min = 2, max = 100, message = "Department name should have between 2 and 100 characters") // Custom size 	// validation
 	private String name;
 	

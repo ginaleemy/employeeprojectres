@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
 import org.h2.api.Trigger;
 
+
+
 public class EmployeeTrigger implements Trigger {
 	public void init(String triggerName, Connection conn) throws SQLException {
 		// Initialization code if needed

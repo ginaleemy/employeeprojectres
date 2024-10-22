@@ -14,7 +14,6 @@ import jakarta.persistence.PostLoad;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.persistence.UniqueConstraint;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -40,7 +39,6 @@ public class EmployeeProject {
 
 	
 	@ManyToOne
-	@NotBlank(message = "Employee code is required")
 	@Size(min = 1, max = 100, message = "Project name must be between 1 and 100 characters")
 	@JoinColumn(name = "employee_code"
 	, referencedColumnName = "employee_code"
