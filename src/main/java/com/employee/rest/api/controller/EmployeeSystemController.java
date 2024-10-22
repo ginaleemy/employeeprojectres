@@ -88,6 +88,10 @@ public class EmployeeSystemController {
 	@PostMapping("/api/employeeprojects")
 	public ResponseEntity<EmployeeProject> createEmployeeProject(@Valid @RequestBody EmployeeProject proj) {
 		
+		System.out.println("----> proj.tostring  = "+proj.toString());
+		System.out.println("----> proj.getProjectId()  = "+proj.getProjectId());
+		System.out.println("----> proj.getEmployeeCode()  = "+proj.getEmployeeCode());
+		
 		
 		Optional<Project> optProject = projectService.findById(proj.getProjectId());
 		if (optProject.isEmpty())
@@ -101,6 +105,8 @@ public class EmployeeSystemController {
 		
 		
 		EmployeeProject newEmpProj = service.save(new EmployeeProject(optProject.get(), optEmp.get()));
+		
+		System.out.println("----> optEmp.get() = "+optEmp.get());
 		
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newEmpProj.getId())
 				.toUri();

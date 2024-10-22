@@ -39,7 +39,6 @@ public class EmployeeProject {
 
 	
 	@ManyToOne
-	@Size(min = 1, max = 100, message = "Project name must be between 1 and 100 characters")
 	@JoinColumn(name = "employee_code"
 	, referencedColumnName = "employee_code"
 	, nullable = true
