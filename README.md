@@ -54,7 +54,7 @@ Steps to Startup the Project
     
 24) Open Google Chrome and paste http://localhost:8080/actuator to check the application status. If prompted to sign in, use the username username and password password (set up in application-dev.properties).
     
-26) Copy http://localhost:8080/actuator/health. If everything is set up successfully, you should see {"status":"UP"}.
+26) Open Google Chrome and paste http://localhost:8080/actuator/health. If everything is set up successfully, you should see {"status":"UP"}.
     
 28) To view the API documentation, go to Swagger UI: http://localhost:8080/swagger-ui/index.html.
 
