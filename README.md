@@ -65,7 +65,8 @@ You can start testing using the following methods:
 
 i. Swagger-UI: Click the method and then click "Try It Out."
 
-ii. Open Google Chrome and use Talend API Tester: Paste the following to start API testing:
+ii. Open Google Chrome and use Talend API Tester (Recommended): 
+Paste the following to start API testing:
 
 Method: GET
 Path: http://localhost:8080/api/employeeprojects
